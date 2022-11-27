@@ -4,4 +4,70 @@
 	<artifactId>chatcontrol</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>ChatControl</name>
+	<repositories>
+			<repository>
+			<id>spigot-repo</id>
+			<url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/
+			</url>
+		</repository>
+		<repository>
+			<id>tecno-repo</id>
+			<url>http://repo.mrtecno.online/repository/public-maven/</url>
+		</repository>
+	</repositories>
+	
+	<dependecies>
+		<dependency>
+			<groupId>org.spigotmc</groupId>
+			<artifactId>spigot-api</artifactId>
+			<version>1.15.2-R0.1-SNAPSHOT</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.spigot.commons</groupId>
+			<artifactId>commons-cmd</artifactId>
+			<version>2.0.0-SNAPSHOT</version>
+		</dependency>
+	</dependecies>
+	
+	<build>
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<filtering>true</filtering>
+			</resource>
+		</resources>
+		<plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.8.0</version>
+				<configuration>
+					<source>16</source>
+					<target>16</target>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-shade-plugin</artifactId>
+				<version>3.3.0-SNAPSHOT</version>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>shade</goal>
+						</goals>
+						<configuration>
+							<relocations>
+								<relocation>
+									<pattern>org.spigot.commons</pattern>
+									<shadedPattern>it.plugandcree.chatcontrol.libraries</shadedPattern>
+								</relocation>
+							</relocations>
+							<minimizeJar>true</minimizeJar>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
 </project>
