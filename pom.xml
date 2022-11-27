@@ -5,7 +5,7 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<name>ChatControl</name>
 	<repositories>
-			<repository>
+		<repository>
 			<id>spigot-repo</id>
 			<url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/
 			</url>
@@ -15,8 +15,14 @@
 			<url>http://repo.mrtecno.online/repository/public-maven/</url>
 		</repository>
 	</repositories>
-	
-	<dependecies>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>1.18.22</version>
+			<scope>provided</scope>
+		</dependency>
 		<dependency>
 			<groupId>org.spigotmc</groupId>
 			<artifactId>spigot-api</artifactId>
@@ -28,8 +34,8 @@
 			<artifactId>commons-cmd</artifactId>
 			<version>2.0.0-SNAPSHOT</version>
 		</dependency>
-	</dependecies>
-	
+	</dependencies>
+
 	<build>
 		<resources>
 			<resource>
