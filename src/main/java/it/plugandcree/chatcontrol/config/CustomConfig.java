@@ -6,6 +6,8 @@ import java.util.List;
 import org.bukkit.ChatColor;
 import org.bukkit.configuration.file.YamlConfiguration;
 
+import it.plugandcree.chatcontrol.ChatControl;
+
 public class CustomConfig extends YamlConfiguration {
 	public String getRawString(String path) {
 		return ChatColor.translateAlternateColorCodes('&', super.getString(path));
@@ -29,7 +31,7 @@ public class CustomConfig extends YamlConfiguration {
 		return stringList;
 	}
 
-	public String noPerm() {
-		return getString("messages.no-perm");
+	public static String noPerm() {
+		return ChatControl.getInstance().getLang().getString("messages.no-perm");
 	}
 }

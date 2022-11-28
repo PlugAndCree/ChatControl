@@ -4,3 +4,7 @@ api-version: 1.15
 author: "Plug_And_Cree"
 
 main: it.plugandcree.chatcontrol.ChatControl
+
+commands:
+    chatcontrol:
+        description: main cmd

@@ -2,3 +2,5 @@ messages:
     prefix: "&a&lChatControl > &7"
     no-perm: "Not enough permissions"
     reload-complete: "Reload complete"
+    
+    help-format: "&7- &a%s &8(&r%s&8)"
