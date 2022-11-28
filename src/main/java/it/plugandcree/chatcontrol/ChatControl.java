@@ -2,8 +2,8 @@ package it.plugandcree.chatcontrol;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.HashSet;
+import java.util.Set;
 
 import org.bukkit.configuration.InvalidConfigurationException;
 import org.bukkit.entity.Player;
@@ -21,14 +21,14 @@ public class ChatControl extends JavaPlugin {
 	private CustomConfig config;
 	
 	private @Setter boolean globalMuteMode;
-	private Map<String, Boolean> mutedPlayers;
+	private Set<String> mutedPlayers;
 	
 	@Override
 	public void onEnable() {
 		instance = this;
 		
 		globalMuteMode = false;
-		mutedPlayers = new HashMap<>();
+		mutedPlayers = new HashSet<>();
 		reload();
 		
 		new ChatControlCommand().register(this);
@@ -44,7 +44,7 @@ public class ChatControl extends JavaPlugin {
 	 * @param p player name {@link Player#getName}
 	 */
 	public void mutePlayer(String p) {
-		mutedPlayers.put(p, true);
+		mutedPlayers.add(p);
 	}
 	
 	/**
@@ -52,18 +52,25 @@ public class ChatControl extends JavaPlugin {
 	 * @param p player name {@link Player#getName}
 	 */
 	public void unmutePlayer(String p) {
-		mutedPlayers.put(p, false);
+		mutedPlayers.remove(p);
 	}
 	
 	/**
 	 * Check if a player is muted
 	 * @param p player name {@link Player#getName}
-	 * @return true if player exists is muted, false otherwise
+	 * @return true if player is muted, false otherwise
 	 */
 	public boolean checkMutedPlayer(String p) {
-		Boolean result = mutedPlayers.get(p);
-		
-		return result == null ? false : result;
+		return mutedPlayers.contains(p);
+	}
+	
+	/**
+	 * Toggles the global mute mode boolean flag
+	 * @return toggled state of global mute mode
+	 */
+	public boolean toggleGlobalMute() {
+		globalMuteMode = !globalMuteMode;
+		return globalMuteMode;
 	}
 	
 	private CustomConfig createConfigFile(String name) {

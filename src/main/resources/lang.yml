@@ -4,3 +4,11 @@ messages:
     reload-complete: "Reload complete"
     
     help-format: "&7- &a%s &8(&r%s&8)"
+    
+    global-mute-on: "Chat globally muted"
+    global-mute-off: "Unmuted global chat"
+    
+    chat-cleared: "&7The chat has been cleared"
+    
+    player-muted: "Player &a%player% &7muted"
+    player-unmuted: "Player &a%player% &7unmuted"
