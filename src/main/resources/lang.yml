@@ -12,3 +12,6 @@ messages:
     
     player-muted: "Player &a%player% &7muted"
     player-unmuted: "Player &a%player% &7unmuted"
+    
+    player-cannot-chat-global: "You can't write messages, the chat has been muted"
+    player-cannot-chat-single: "You can't write messages, you have been muted"

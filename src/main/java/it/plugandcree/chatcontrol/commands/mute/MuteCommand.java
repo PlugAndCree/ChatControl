@@ -31,7 +31,7 @@ public class MuteCommand extends PermissibleCommand {
 			if (mode)
 				sender.sendMessage(lang.getString("messages.global-mute-on"));
 			else
-				sender.sendMessage(lang.getString("messages.global-mute-on"));
+				sender.sendMessage(lang.getString("messages.global-mute-off"));
 		} else {
 			if (ChatControl.getInstance().checkMutedPlayer(playerName)) {
 				ChatControl.getInstance().unmutePlayer(playerName);

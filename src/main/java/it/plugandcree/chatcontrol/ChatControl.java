@@ -5,12 +5,14 @@ import java.io.IOException;
 import java.util.HashSet;
 import java.util.Set;
 
+import org.bukkit.Bukkit;
 import org.bukkit.configuration.InvalidConfigurationException;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import it.plugandcree.chatcontrol.commands.ChatControlCommand;
 import it.plugandcree.chatcontrol.config.CustomConfig;
+import it.plugandcree.chatcontrol.events.ChatEvent;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -32,6 +34,7 @@ public class ChatControl extends JavaPlugin {
 		reload();
 		
 		new ChatControlCommand().register(this);
+		Bukkit.getPluginManager().registerEvents(new ChatEvent(), this);
 	}
 	
 	public void reload() {
